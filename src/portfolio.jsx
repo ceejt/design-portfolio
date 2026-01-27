@@ -58,3 +58,15 @@ export default function Portfolio() {
     </div>
   );
 }
+
+function DesignCard({ design, index }) {
+  const [isFlipped, setIsFlipped] = useState(false);
+  return (
+    <div
+      className="perspective-1000 animate-fade-up cursor-pointer"
+      onMouseEnter={() => setIsFlipped(true)}
+      onMouseLeave={() => setIsFlipped(false)}
+      style={{ animationDelay: `${index * 0.1}s` }}
+    ></div>
+  );
+}

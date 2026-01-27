@@ -4,39 +4,59 @@ export default function Portfolio() {
   const designs = [
     {
       id: 1,
-      title: "Design Project 1",
-      description: "A sophisticated web application with modern UI patterns",
-      image: "designs/design-budetwisedash.jpg",
+      title: "BudgetWise",
+      description:
+        "An all-in-one financial management app built for students and scholars.",
+      image: [
+        "designs/design-budetwisedash.jpg",
+        "public/designs/design-budgetwisesignin.png",
+        "public/designs/design-budgetwiselp.png",
+        "public/designs/design-budgetwisetarp.png",
+      ],
     },
     {
       id: 2,
-      title: "Design Project 2",
+      title: "Doorlivery Express",
       description: "Mobile-first responsive design with smooth interactions",
-      image: "designs/design-doorlivery.jpg",
+      image: ["public/designs/design-doorlivery.jpg"],
     },
     {
       id: 3,
-      title: "Design Project 3",
+      title: "Eureka - STEM Academic Organization",
       description: "Data visualization dashboard with real-time updates",
-      image: "designs/design-eureka-1.png#",
+      image: [
+        "designs/design-eureka-1.png",
+        "public/designs/design-eureka-2.png",
+        "public/designs/design-eureka-3.png",
+        "public/designs/design-eureka-4.png",
+      ],
     },
     {
       id: 4,
-      title: "Design Project 4",
+      title: "UPCSG Internship Fair",
       description: "E-commerce platform with seamless checkout flow",
-      image: "designs/design-internship.png",
+      image: ["public/designs/design-internship.png"],
     },
     {
       id: 5,
-      title: "Design Project 5",
+      title: "Freelance Work",
       description: "Creative portfolio showcase with parallax effects",
-      image: "designs/design-pcr.jpg#",
+      image: ["publi/designs/design-pcr.jpg#"],
     },
     {
       id: 6,
-      title: "Design Project 6",
+      title: "Snippit",
       description: "Social media platform with engaging user experience",
-      image: "designs/design-snippit.jpg",
+      image: ["public/designs/design-snippit.jpg"],
+    },
+    {
+      id: 7,
+      title: "Tektoks",
+      description: "Social media platform with engaging user experience",
+      image: [
+        "public/designs/design-tektoksposter.png",
+        "public/designs/design-tektoksguests.png",
+      ],
     },
   ];
 
@@ -47,9 +67,10 @@ export default function Portfolio() {
           Design Portfolio
         </h1>
         <p className="text-lg text-gray-400 font-light tracking-wider">
-          Explore my creative work in UI & Layout Design
+          Explore my creative work
         </p>
       </header>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
         {designs.map((design, index) => (
           <DesignCard key={design.id} design={design} index={index} />
@@ -61,11 +82,28 @@ export default function Portfolio() {
 
 function DesignCard({ design, index }) {
   const [isFlipped, setIsFlipped] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const handleNextImage = (e) => {
+    e.stopPropagation();
+    setCurrentImageIndex((prev) => (prev + 1) % design.images.length);
+  };
+
+  const handlePrevImage = (e) => {
+    e.stopPropagation();
+    setCurrentImageIndex(
+      (prev) => (prev - 1 + design.images.length) % design.images.length,
+    );
+  };
+
   return (
     <div
       className="perspective-1000 animate-fade-up cursor-pointer"
       onMouseEnter={() => setIsFlipped(true)}
-      onMouseLeave={() => setIsFlipped(false)}
+      onMouseLeave={() => {
+        setIsFlipped(false);
+        setCurrentImageIndex(0);
+      }}
       style={{ animationDelay: `${index * 0.1}s` }}
     >
       <div
@@ -78,9 +116,10 @@ function DesignCard({ design, index }) {
             </div>
           </div>
         </div>
+
         <div className="absolute w-full h-full backface-hidden rounded-2xl overflow-hidden bg-[#1f1e21] border border-white/15 rotate-y-180 flex flex-col">
-          <div className="flex-1 bg-[#2a2a2d] flex items-center justify-center border-b border-white/10">
-            {design.image === "#" ? (
+          <div className="flex-1 bg-[#2a2a2d] relative flex items-center justify-center border-b border-white/10 group">
+            {design.images[currentImageIndex] === "#" ? (
               <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#3a3a3d] to-[#2a2a2d]">
                 <span className="text-8xl font-extralight text-white/15">
                   #
@@ -88,12 +127,75 @@ function DesignCard({ design, index }) {
               </div>
             ) : (
               <img
-                src={design.image}
-                alt={design.title}
+                src={design.images[currentImageIndex]}
+                alt={`${design.title} - Image ${currentImageIndex + 1}`}
                 className="w-full h-full object-cover"
               />
             )}
+
+            {design.images.length > 1 && (
+              <>
+                <button
+                  onClick={handlePrevImage}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-black/70"
+                  aria-label="Previous image"
+                >
+                  <svg
+                    className="w-4 h-4 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 19l-7-7 7-7"
+                    />
+                  </svg>
+                </button>
+
+                <button
+                  onClick={handleNextImage}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-black/70"
+                  aria-label="Next image"
+                >
+                  <svg
+                    className="w-4 h-4 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </button>
+
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {design.images.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setCurrentImageIndex(idx);
+                      }}
+                      className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                        idx === currentImageIndex
+                          ? "bg-white w-4"
+                          : "bg-white/40 hover:bg-white/60"
+                      }`}
+                      aria-label={`Go to image ${idx + 1}`}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
           </div>
+
           <div className="p-6">
             <h3 className="text-2xl font-normal mb-3 text-white tracking-tight">
               {design.title}
@@ -101,6 +203,11 @@ function DesignCard({ design, index }) {
             <p className="text-[15px] text-gray-400 leading-relaxed font-light">
               {design.description}
             </p>
+            {design.images.length > 1 && (
+              <p className="text-xs text-gray-500 mt-2 font-light">
+                {currentImageIndex + 1} / {design.images.length}
+              </p>
+            )}
           </div>
         </div>
       </div>

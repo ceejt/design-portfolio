@@ -138,8 +138,6 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
-# ===== ADDITIONS FOR YOUR PROJECT =====
-
 # Vite build output
 dist-ssr
 *.local

@@ -7,55 +7,55 @@ export default function Portfolio() {
       title: "BudgetWise",
       description:
         "An all-in-one financial management app built for students and scholars.",
-      image: [
-        "designs/design-budetwisedash.jpg",
-        "public/designs/design-budgetwisesignin.png",
-        "public/designs/design-budgetwiselp.png",
-        "public/designs/design-budgetwisetarp.png",
+      images: [
+        "/designs/design-budetwisedash.jpg",
+        "/designs/design-budgetwisesignin.png",
+        "/designs/design-budgetwiselp.png",
+        "/designs/design-budgetwisetarp.png",
       ],
     },
     {
       id: 2,
       title: "Doorlivery Express",
       description: "Mobile-first responsive design with smooth interactions",
-      image: ["public/designs/design-doorlivery.jpg"],
+      images: ["/designs/design-doorlivery.jpg"],
     },
     {
       id: 3,
       title: "Eureka - STEM Academic Organization",
       description: "Data visualization dashboard with real-time updates",
-      image: [
-        "designs/design-eureka-1.png",
-        "public/designs/design-eureka-2.png",
-        "public/designs/design-eureka-3.png",
-        "public/designs/design-eureka-4.png",
+      images: [
+        "/designs/design-eureka-1.png",
+        "/designs/design-eureka-2.png",
+        "/designs/design-eureka-3.png",
+        "/designs/design-eureka-4.png",
       ],
     },
     {
       id: 4,
       title: "UPCSG Internship Fair",
       description: "E-commerce platform with seamless checkout flow",
-      image: ["public/designs/design-internship.png"],
+      images: ["/designs/design-internship.png"],
     },
     {
       id: 5,
       title: "Freelance Work",
       description: "Creative portfolio showcase with parallax effects",
-      image: ["publi/designs/design-pcr.jpg#"],
+      images: ["/designs/design-pcr.jpg"],
     },
     {
       id: 6,
       title: "Snippit",
       description: "Social media platform with engaging user experience",
-      image: ["public/designs/design-snippit.jpg"],
+      images: ["/designs/design-snippit.jpg"],
     },
     {
       id: 7,
       title: "Tektoks",
       description: "Social media platform with engaging user experience",
-      image: [
-        "public/designs/design-tektoksposter.png",
-        "public/designs/design-tektoksguests.png",
+      images: [
+        "/designs/design-tektoksposter.png",
+        "/designs/design-tektoksguests.png",
       ],
     },
   ];

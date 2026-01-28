@@ -18,7 +18,12 @@ export default function Portfolio() {
       id: 2,
       title: "Doorlivery Express",
       description: "Mobile-first responsive design with smooth interactions",
-      images: ["/designs/design-doorlivery.jpg"],
+      images: [
+        "/designs/design-doorlivery.jpg",
+        "designs/design-doorlivery-2.jpg",
+        "designs/design-doorlivery-3.jpg",
+        "designs/design-doorlivery-4.jpg",
+      ],
     },
     {
       id: 3,
@@ -126,11 +131,26 @@ function DesignCard({ design, index }) {
           className={`relative w-full h-[500px] transition-transform duration-700 ease-out preserve-3d ${isFlipped ? "rotate-y-180" : ""}`}
         >
           {/* back view (frosted glass) */}
-          <div className="absolute w-full h-full backface-hidden rounded-2xl overflow-hidden bg-[rgba(60,60,65,0.4)] border border-white/10">
-            <div className="w-full h-full relative overflow-hidden">
-              <div className="w-full h-full backdrop-blur-[20px] backdrop-saturate-[180%] bg-[rgba(80,80,85,0.3)] relative">
-                <div className="absolute w-[200%] h-[200%] animate-float bg-[radial-gradient(circle_at_20%_30%,rgba(255,255,255,0.1)_0%,transparent_50%),radial-gradient(circle_at_80%_70%,rgba(255,255,255,0.08)_0%,transparent_50%),radial-gradient(circle_at_40%_80%,rgba(255,255,255,0.06)_0%,transparent_50%)]"></div>
-              </div>
+          <div className="absolute w-full h-full backface-hidden rounded-2xl overflow-hidden border border-white/10">
+            <div className="w-full h-full relative">
+              {/* blurred image background */}
+              {design.images[0] === "#" ? (
+                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#3a3a3d] to-[#2a2a2d]">
+                  <span className="text-8xl font-extralight text-white/15">
+                    #
+                  </span>
+                </div>
+              ) : (
+                <>
+                  <img
+                    src={design.images[0]}
+                    alt={design.title}
+                    className="w-full h-full object-cover"
+                  />
+                  {/* Frosted glass overlay */}
+                  <div className="absolute inset-0 backdrop-blur-[12px] backdrop-saturate-[140%] bg-[rgba(40,40,42,0.6)]"></div>
+                </>
+              )}
             </div>
           </div>
           {/* front view (images) */}

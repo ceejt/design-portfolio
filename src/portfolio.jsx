@@ -29,6 +29,7 @@ export default function Portfolio() {
         "/designs/design-eureka-2.png",
         "/designs/design-eureka-3.png",
         "/designs/design-eureka-4.png",
+        "/designs/design-eureka-5.png",
       ],
     },
     {
@@ -122,7 +123,7 @@ function DesignCard({ design, index }) {
         style={{ animationDelay: `${index * 0.1}s` }}
       >
         <div
-          className={`relative w-full h-[420px] transition-transform duration-700 ease-out preserve-3d ${isFlipped ? "rotate-y-180" : ""}`}
+          className={`relative w-full h-[500px] transition-transform duration-700 ease-out preserve-3d ${isFlipped ? "rotate-y-180" : ""}`}
         >
           {/* back view (frosted glass) */}
           <div className="absolute w-full h-full backface-hidden rounded-2xl overflow-hidden bg-[rgba(60,60,65,0.4)] border border-white/10">
@@ -134,7 +135,7 @@ function DesignCard({ design, index }) {
           </div>
           {/* front view (images) */}
           <div className="absolute w-full h-full backface-hidden rounded-2xl overflow-hidden bg-[#1f1e21] border border-white/15 rotate-y-180 flex flex-col">
-            <div className="flex-1 bg-[#2a2a2d] relative flex items-center justify-center border-b border-white/10 group">
+            <div className="h-[350px] bg-[#2a2a2d] relative flex items-center justify-center border-b border-white/10 group overflow-hidden group">
               {design.images[currentImageIndex] === "#" ? (
                 <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#3a3a3d] to-[#2a2a2d]">
                   <span className="text-8xl font-extralight text-white/15">
@@ -149,12 +150,12 @@ function DesignCard({ design, index }) {
                   onClick={handleImageClick}
                 />
               )}
-
+              {/* nav buttons */}
               {design.images.length > 1 && (
                 <>
                   <button
                     onClick={handlePrevImage}
-                    className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-black/70 z-10"
+                    className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-black/70 z-20"
                     aria-label="Previous image"
                   >
                     <svg
@@ -219,7 +220,7 @@ function DesignCard({ design, index }) {
               </div>
             </div>
 
-            <div className="p-6">
+            <div className="flex-1 p-6 flex flex-col justify-between">
               <h3 className="text-2xl font-normal mb-3 text-white tracking-tight">
                 {design.title}
               </h3>
@@ -235,7 +236,7 @@ function DesignCard({ design, index }) {
           </div>
         </div>
       </div>
-
+      {/* clicked full image modal */}
       {isModalOpen && (
         <div
           className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4"

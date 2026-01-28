@@ -81,6 +81,48 @@ export default function Portfolio() {
       },
     ],
   };
+  const tools = [
+    {
+      name: "Figma",
+      icon: (
+        <img
+          src="/designs/icons-figma.svg"
+          alt="Canva Logo"
+          className="w-10 h-10 mb-3 opacity-80 group-hover:scale-110 transition-transform duration-300"
+        />
+      ),
+    },
+    {
+      name: "Canva",
+      icon: (
+        <img
+          src="/designs/icons-canva.svg"
+          alt="Canva Logo"
+          className="w-10 h-10 mb-3 opacity-80 group-hover:scale-110 transition-transform duration-300"
+        />
+      ),
+    },
+    {
+      name: "Adobe Lightroom",
+      icon: (
+        <img
+          src="/designs/icons-lightroom.svg"
+          alt="Canva Logo"
+          className="w-10 h-10 mb-3 opacity-80 group-hover:scale-110 transition-transform duration-300"
+        />
+      ),
+    },
+    {
+      name: "Adobe Photoshop",
+      icon: (
+        <img
+          src="/designs/icons-photoshop.svg"
+          alt="Canva Logo"
+          className="w-10 h-10 mb-3 opacity-80 group-hover:scale-110 transition-transform duration-300"
+        />
+      ),
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-[#28272A] px-8 py-16 text-white md:px-8">
@@ -92,6 +134,32 @@ export default function Portfolio() {
           ceejt® | Explore my creative work in UI and Layout Design
         </p>
       </header>
+
+      <div className="max-w-7xl mx-auto mb-32">
+        <div className="flex items-center gap-4 mb-10">
+          <h2 className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium">
+            Toolkit
+          </h2>
+          <div className="flex-1 h-px bg-white/10"></div>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {tools.map((tool) => (
+            <div
+              key={tool.name}
+              className="group relative bg-white/5 border border-white/10 rounded-xl p-6 flex flex-col items-center justify-center transition-all duration-300 hover:bg-white/10 hover:border-white/20"
+            >
+              <span className="text-2xl mb-3 opacity-80 group-hover:scale-110 transition-transform duration-300">
+                {tool.icon}
+              </span>
+              <span className="text-sm font-light tracking-wide text-gray-300 group-hover:text-white transition-colors">
+                {tool.name}
+              </span>
+              <div className="absolute inset-0 bg-white/5 blur-xl opacity-0 group-hover:opacity-100 transition-opacity rounded-full"></div>
+            </div>
+          ))}
+        </div>
+      </div>
 
       <div className="max-w-7xl mx-auto space-y-20">
         {Object.entries(designsByYear)

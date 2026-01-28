@@ -7,7 +7,7 @@ export default function Portfolio() {
         id: 1,
         title: "BudgetWise",
         description:
-          "An all-in-one financial management app built for students and scholars.",
+          "Designed a variety of pages for BudgetWise, including the sign-in/sign-up page, main dashboard, landing page, and poster.",
         images: [
           "/designs/design-budetwisedash.jpg",
           "/designs/design-budgetwisesignin.png",
@@ -18,13 +18,15 @@ export default function Portfolio() {
       {
         id: 5,
         title: "Freelance Work",
-        description: "Creative portfolio showcase with parallax effects",
+        description:
+          "Created own assets and illustrations for a client’s final Biology project related to PCR. These visuals improved conceptual clarity and supported accurate presentation of complex biological processes.",
         images: ["/designs/design-pcr.jpg"],
       },
       {
         id: 6,
         title: "Snippit",
-        description: "Social media platform with engaging user experience",
+        description:
+          "Applied sleek and modern intuitive UI design principles for a clip cutter's landing page. ",
         images: [
           "/designs/design-snippit.jpg",
           "/designs/design-snippit-2.jpg",
@@ -36,7 +38,8 @@ export default function Portfolio() {
       {
         id: 7,
         title: "UPCSG Tektoks",
-        description: "Social media platform with engaging user experience",
+        description:
+          "As a creatives member of UP Computer Science Guild's Tektoks program, I designed posters and social media cards that boosted user engagement and public information.",
         images: [
           "/designs/design-tektoksposter.png",
           "/designs/design-tektoksguests.png",
@@ -45,7 +48,8 @@ export default function Portfolio() {
       {
         id: 4,
         title: "UPCSG Internship Fair",
-        description: "E-commerce platform with seamless checkout flow",
+        description:
+          "Designed an internship fair poster following UP Computer Science Guild's design identity and theme.",
         images: ["/designs/design-internship.png"],
       },
     ],
@@ -53,7 +57,8 @@ export default function Portfolio() {
       {
         id: 3,
         title: "Eureka - STEM Academic Organization",
-        description: "Data visualization dashboard with real-time updates",
+        description:
+          "Volunteered to design and create social media publication materials for our SHS academic organization. Despite not being a member of the creatives committee, I contributed in applying creative design principles to produce visually compelling pubmats and posters that enhanced the organization’s visual identity and audience appeal.",
         images: [
           "/designs/design-eureka-1.png",
           "/designs/design-eureka-2.png",
@@ -65,7 +70,8 @@ export default function Portfolio() {
       {
         id: 2,
         title: "Doorlivery Express",
-        description: "Mobile-first responsive design with smooth interactions",
+        description:
+          "First experience in designing user interface and wireframes in Figma for our ICT/Entrepreneurship final requirement. As the programmer and brand identity lead, I helped the group develop a consistent visual language and intuitive layout inspired by similar real-world applications.",
         images: [
           "/designs/design-doorlivery.jpg",
           "/designs/design-doorlivery-2.jpg",
@@ -83,7 +89,7 @@ export default function Portfolio() {
           Design Portfolio
         </h1>
         <p className="text-lg text-gray-400 font-light tracking-wider">
-          Explore my creative work
+          ceejt® | Explore my creative work in UI and Layout Design
         </p>
       </header>
 

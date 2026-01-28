@@ -131,7 +131,7 @@ export default function Portfolio() {
           Design Portfolio
         </h1>
         <p className="text-lg text-gray-400 font-light tracking-wider">
-          ceejt® | Explore my creative work in UI and Layout Design
+          Cyril Josef Tinae | Explore my creative work in UI and Layout Design
         </p>
       </header>
 

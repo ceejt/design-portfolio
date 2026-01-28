@@ -1,90 +1,111 @@
 import { useState } from "react";
 
 export default function Portfolio() {
-  const designs = [
-    {
-      id: 1,
-      title: "BudgetWise",
-      description:
-        "An all-in-one financial management app built for students and scholars.",
-      images: [
-        "/designs/design-budetwisedash.jpg",
-        "/designs/design-budgetwisesignin.png",
-        "/designs/design-budgetwiselp.png",
-        "/designs/design-budgetwisetarp.png",
-      ],
-    },
-    {
-      id: 2,
-      title: "Doorlivery Express",
-      description: "Mobile-first responsive design with smooth interactions",
-      images: [
-        "/designs/design-doorlivery.jpg",
-        "designs/design-doorlivery-2.jpg",
-        "designs/design-doorlivery-3.jpg",
-        "designs/design-doorlivery-4.jpg",
-      ],
-    },
-    {
-      id: 3,
-      title: "Eureka - STEM Academic Organization",
-      description: "Data visualization dashboard with real-time updates",
-      images: [
-        "/designs/design-eureka-1.png",
-        "/designs/design-eureka-2.png",
-        "/designs/design-eureka-3.png",
-        "/designs/design-eureka-4.png",
-        "/designs/design-eureka-5.png",
-      ],
-    },
-    {
-      id: 4,
-      title: "UPCSG Internship Fair",
-      description: "E-commerce platform with seamless checkout flow",
-      images: ["/designs/design-internship.png"],
-    },
-    {
-      id: 5,
-      title: "Freelance Work",
-      description: "Creative portfolio showcase with parallax effects",
-      images: ["/designs/design-pcr.jpg"],
-    },
-    {
-      id: 6,
-      title: "Snippit",
-      description: "Social media platform with engaging user experience",
-      images: [
-        "/designs/design-snippit.jpg",
-        "/designs/design-snippit-2.jpg",
-        "/designs/design-snippit-3.jpg",
-      ],
-    },
-    {
-      id: 7,
-      title: "Tektoks",
-      description: "Social media platform with engaging user experience",
-      images: [
-        "/designs/design-tektoksposter.png",
-        "/designs/design-tektoksguests.png",
-      ],
-    },
-  ];
+  const designsByYear = {
+    2025: [
+      {
+        id: 1,
+        title: "BudgetWise",
+        description:
+          "An all-in-one financial management app built for students and scholars.",
+        images: [
+          "/designs/design-budetwisedash.jpg",
+          "/designs/design-budgetwisesignin.png",
+          "/designs/design-budgetwiselp.png",
+          "/designs/design-budgetwisetarp.png",
+        ],
+      },
+      {
+        id: 5,
+        title: "Freelance Work",
+        description: "Creative portfolio showcase with parallax effects",
+        images: ["/designs/design-pcr.jpg"],
+      },
+      {
+        id: 6,
+        title: "Snippit",
+        description: "Social media platform with engaging user experience",
+        images: [
+          "/designs/design-snippit.jpg",
+          "/designs/design-snippit-2.jpg",
+          "/designs/design-snippit-3.jpg",
+        ],
+      },
+    ],
+    2024: [
+      {
+        id: 7,
+        title: "UPCSG Tektoks",
+        description: "Social media platform with engaging user experience",
+        images: [
+          "/designs/design-tektoksposter.png",
+          "/designs/design-tektoksguests.png",
+        ],
+      },
+      {
+        id: 4,
+        title: "UPCSG Internship Fair",
+        description: "E-commerce platform with seamless checkout flow",
+        images: ["/designs/design-internship.png"],
+      },
+    ],
+    2023: [
+      {
+        id: 3,
+        title: "Eureka - STEM Academic Organization",
+        description: "Data visualization dashboard with real-time updates",
+        images: [
+          "/designs/design-eureka-1.png",
+          "/designs/design-eureka-2.png",
+          "/designs/design-eureka-3.png",
+          "/designs/design-eureka-4.png",
+          "/designs/design-eureka-5.png",
+        ],
+      },
+      {
+        id: 2,
+        title: "Doorlivery Express",
+        description: "Mobile-first responsive design with smooth interactions",
+        images: [
+          "/designs/design-doorlivery.jpg",
+          "/designs/design-doorlivery-2.jpg",
+          "/designs/design-doorlivery-3.jpg",
+          "/designs/design-doorlivery-4.jpg",
+        ],
+      },
+    ],
+  };
 
   return (
     <div className="min-h-screen bg-[#28272A] px-8 py-16 text-white md:px-8">
       <header className="text-center mb-20 animate-fade-down">
-        <h1 className="text-5xl md:text-6xl font-light tracking-tight mb-4 pb-1 bg-gradient-to-br from-white to-gray-400 bg-clip-text text-transparent">
+        <h1 className="text-5xl md:text-6xl font-light tracking-tight mb-4 bg-gradient-to-br from-white to-gray-400 bg-clip-text text-transparent pb-2">
           Design Portfolio
         </h1>
         <p className="text-lg text-gray-400 font-light tracking-wider">
-          Explore my creative work in UI and Layout
+          Explore my creative work
         </p>
       </header>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
-        {designs.map((design, index) => (
-          <DesignCard key={design.id} design={design} index={index} />
-        ))}
+      <div className="max-w-7xl mx-auto space-y-20">
+        {Object.entries(designsByYear)
+          .sort(([yearA], [yearB]) => yearB - yearA)
+          .map(([year, designs]) => (
+            <section key={year} className="space-y-8">
+              <div className="flex items-center gap-4">
+                <h2 className="text-3xl md:text-4xl font-light text-white tracking-tight">
+                  {year}
+                </h2>
+                <div className="flex-1 h-px bg-gradient-to-r from-white/20 to-transparent"></div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                {designs.map((design, index) => (
+                  <DesignCard key={design.id} design={design} index={index} />
+                ))}
+              </div>
+            </section>
+          ))}
       </div>
     </div>
   );

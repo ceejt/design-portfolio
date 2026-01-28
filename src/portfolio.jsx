@@ -68,7 +68,7 @@ export default function Portfolio() {
   return (
     <div className="min-h-screen bg-[#28272A] px-8 py-16 text-white md:px-8">
       <header className="text-center mb-20 animate-fade-down">
-        <h1 className="text-5xl md:text-6xl font-light tracking-tight mb-4 bg-gradient-to-br from-white to-gray-400 bg-clip-text text-transparent">
+        <h1 className="text-5xl md:text-6xl font-light tracking-tight mb-4 pb-1 bg-gradient-to-br from-white to-gray-400 bg-clip-text text-transparent">
           Design Portfolio
         </h1>
         <p className="text-lg text-gray-400 font-light tracking-wider">
